@@ -1,17 +1,20 @@
 import { useState } from 'react'
-import { useParams, redirect } from 'react-router-dom'
+import { useParams, useLocation } from 'react-router-dom'
 import { addParticipante } from "../CRUD.ts"
 
 import '../App.css'
 
 function Participar() {
   let { id } = useParams()
+  const location = useLocation()
+  const baseurl = location.pathname.split("/", 1)
   const [name, setName] = useState("")
 
   const handleinputname = (e: any) => setName(e.target.value)
   const salvar = () => {
     addParticipante(parseInt(id!), name)
-    redirect(`/Adicionar/${id}`)
+    
+    window.location.href = baseurl + "/Adicionar/" + id
   }
 
   return (

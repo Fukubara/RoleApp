@@ -20,11 +20,13 @@ async function addParticipante(id: number, nome: string) {
             nomes: arrayUnion(nome)
         });
         console.log("Document written with ID: ");
+        
     } catch (e) {
         console.error("Error adding document: ", e);
         console.error("Creating new...")
         await setDoc(doc(db, "participantes", `${id}`), {nomes: [nome]})
     }
+    return
 }
 
 async function getParticipantes(id: number){
