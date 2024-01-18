@@ -9,7 +9,7 @@ function Adicionar() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    getParticipantes(20).then(dados => setData(dados.nomes))
+    getParticipantes(parseInt(id!)).then(dados => setData(dados.nomes))
   }, [])
  
   return (
@@ -17,7 +17,7 @@ function Adicionar() {
       <div className="container d-flex-column mb-2">
         Obrigado por participar. Aqui está a lista de confirmados:
         {
-          data?.map((ele, i)=> (
+          data?.map((ele)=> (
             <ul>
               {ele}
             </ul>
