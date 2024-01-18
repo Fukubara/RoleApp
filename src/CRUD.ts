@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { arrayUnion, getFirestore, setDoc } from "firebase/firestore";
-import { doc, getDoc, updateDoc } from "firebase/firestore"; 
+import { arrayUnion, collection, getFirestore, setDoc } from "firebase/firestore";
+import { doc, getDoc, addDoc, updateDoc } from "firebase/firestore"; 
 
 const firebaseConfig = {
     apiKey: "AIzaSyBxZ1xuyEYuS1UklqMN5-DzJfrLrOO64vY",
@@ -43,4 +43,27 @@ async function getParticipantes(id: number){
     }
 }
 
-export {addParticipante, getParticipantes}
+async function criarEvento(
+    nome: string, 
+    data: string, 
+    descricao: string, 
+    local: string, 
+    endereco: string, 
+    valor: string ) 
+    {
+        try{
+            await addDoc(collection(db, "eventos"), {
+                nome,
+                data,
+                descricao,
+                local,
+                endereco,
+                valor,
+                nomes: []
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+export {addParticipante, getParticipantes, criarEvento}

@@ -5,6 +5,7 @@ import './App.css'
 import Entrar from './Pages/Entrar'
 import Participar from './Pages/Participar'
 import Adicionar from './Pages/Adicionar'
+import CriarEvento from './Pages/CriarEvento'
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
     { path: "/", element: <Entrar/> },
     { path: "/Participar/:id", element: <Participar/> },
     { path: "/Adicionar/:id", element: <Adicionar/> },
+    { path: "/CriarEvento", element: <CriarEvento/> },
   ])
 
   return (
