@@ -15,9 +15,9 @@ function App() {
   ])
 
   return (
-    <>
+    <div className="card">
       <RouterProvider router={router}/>
-    </>
+    </div>
   )
 }
 

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { getParticipantes } from "../CRUD.ts"
 
 import '../App.css'
@@ -13,18 +13,24 @@ function Adicionar() {
   }, [])
  
   return (
-    <>
+    <div className="card">
       <div className="container d-flex-column mb-2">
         Obrigado por participar. Aqui está a lista de confirmados:
-        {
-          data?.map((ele)=> (
-            <ul>
-              {ele}
-            </ul>
-          ))
-        }
+        <ul className="list-group">
+          {
+            data?.map((ele)=> (
+              
+                <li className="list-group-item">{ele}</li>
+              
+            ))
+          }
+        </ul>
       </div>
-    </>
+      <div>
+        <span>Deseja adicionar mais alguém? </span>
+        <Link to={`/Participar/${id}`}>Adicionar</Link>
+      </div>
+    </div>
   )
 }
 
