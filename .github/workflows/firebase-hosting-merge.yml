@@ -12,6 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Intalling dependencies
+        run: npm install
+
       - name: Build ViteApp
         run: npm run build
       
