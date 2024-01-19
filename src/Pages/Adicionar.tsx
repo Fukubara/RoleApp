@@ -18,9 +18,9 @@ function Adicionar() {
         Obrigado por participar. Aqui está a lista de confirmados:
         <ul className="list-group">
           {
-            data?.map((ele)=> (
+            data.map((ele, key)=> (
               
-                <li className="list-group-item">{ele}</li>
+                <li className="list-group-item" key={key}>{ele}</li>
               
             ))
           }
