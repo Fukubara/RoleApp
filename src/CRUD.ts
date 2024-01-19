@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-async function addParticipante(id: number, nome: string) {
+async function addParticipante(id: string, nome: string) {
     try {
         await updateDoc(doc(db, "eventos", `${id}`), {
             nomes: arrayUnion(nome)
@@ -31,7 +31,7 @@ async function addParticipante(id: number, nome: string) {
     return
 }
 
-async function getParticipantes(id: number){
+async function getParticipantes(id: string){
     const docRef = doc(db, "eventos", `${id}`);
     const docSnap = await getDoc(docRef);
 

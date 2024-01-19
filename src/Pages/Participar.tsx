@@ -14,7 +14,7 @@ function Participar() {
 
   const handleinputname = (e: any) => setName(e.target.value)
   const salvar = () => {
-    addParticipante(parseInt(id!), name)
+    addParticipante(id!, name)
     window.location.href = baseurl + "/Adicionar/" + id
   }
   const fixerData = (data: PropriedadesEvento) => {

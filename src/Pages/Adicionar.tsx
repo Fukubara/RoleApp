@@ -9,7 +9,7 @@ function Adicionar() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    getParticipantes(parseInt(id!)).then(dados => setData(dados.nomes))
+    getParticipantes(id!).then(dados => setData(dados.nomes))
   }, [])
  
   return (
