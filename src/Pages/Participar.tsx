@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getPropriedadesEvento } from "../CRUD.ts"
 import { PropriedadesEvento } from "../interfaces.ts"
 
@@ -7,7 +7,6 @@ import '../App.css'
 
 function Participar() {
   let { id } = useParams()
-  const navigate = useNavigate()
   const [name, setName] = useState("")
   const [propriedades, setPropriedades] = useState({} as PropriedadesEvento)
 
