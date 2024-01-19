@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import { getParticipantes } from "../CRUD.ts"
+import { addParticipante, getParticipantes } from "../CRUD.ts"
 
 import '../App.css'
 import { useEffect, useState } from 'react'
@@ -9,7 +9,9 @@ function Adicionar() {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    getParticipantes(id!).then(dados => setData(dados.nomes))
+    let parametros = id!.split("&")
+    addParticipante(parametros[0], parametros[1])
+    getParticipantes(parametros[0]).then(dados => setData(dados.nomes))
   }, [])
  
   return (

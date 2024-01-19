@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import { addParticipante, getPropriedadesEvento } from "../CRUD.ts"
+import { useParams, useNavigate, Link } from 'react-router-dom'
+import { getPropriedadesEvento } from "../CRUD.ts"
 import { PropriedadesEvento } from "../interfaces.ts"
 
 import '../App.css'
@@ -12,10 +12,7 @@ function Participar() {
   const [propriedades, setPropriedades] = useState({} as PropriedadesEvento)
 
   const handleinputname = (e: any) => setName(e.target.value)
-  const salvar = () => {
-    addParticipante(id!, name)
-    navigate(`/Adicionar/${id}`)
-  }
+  
   const fixerData = (data: PropriedadesEvento) => {
     let temp = data.data.split("T")
     let tempdata = temp[0].split("-")
@@ -43,7 +40,7 @@ function Participar() {
           <span className='input-group-text'>Nome Completo</span>
           <input type="text" name="nome" id="nome" className="form-control" required onChange={handleinputname} />
         </div>
-        <button className="btn btn-primary" onClick={salvar}>Confirmar</button>
+        <Link className="btn btn-primary" to={`/Adicionar/${id}&${name}`}>Confirmar</Link>
       </div>
     </>
   )
