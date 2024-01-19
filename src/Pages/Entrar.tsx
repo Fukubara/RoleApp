@@ -12,7 +12,7 @@ function Entrar() {
         <h3 className="mb-3">Digite o Código do Role:</h3>
         <div className='input-group mb-3'>
           <input 
-            type="number" 
+            type="text" 
             className="form-control shadow" 
             id='code' 
             name='code' 
