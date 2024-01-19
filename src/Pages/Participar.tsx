@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, useLocation } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { addParticipante, getPropriedadesEvento } from "../CRUD.ts"
 import { PropriedadesEvento } from "../interfaces.ts"
 
@@ -7,15 +7,14 @@ import '../App.css'
 
 function Participar() {
   let { id } = useParams()
-  const location = useLocation()
-  const baseurl = location.pathname.split("/", 1)
+  const navigate = useNavigate()
   const [name, setName] = useState("")
   const [propriedades, setPropriedades] = useState({} as PropriedadesEvento)
 
   const handleinputname = (e: any) => setName(e.target.value)
   const salvar = () => {
     addParticipante(id!, name)
-    window.location.href = baseurl + "/Adicionar/" + id
+    navigate(`/Adicionar/${id}`)
   }
   const fixerData = (data: PropriedadesEvento) => {
     let temp = data.data.split("T")
