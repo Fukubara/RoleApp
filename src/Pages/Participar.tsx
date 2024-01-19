@@ -17,9 +17,15 @@ function Participar() {
     addParticipante(parseInt(id!), name)
     window.location.href = baseurl + "/Adicionar/" + id
   }
+  const fixerData = (data: PropriedadesEvento) => {
+    let temp = data.data.split("T")
+    let tempdata = temp[0].split("-")
+    data.data = `${tempdata[2]}/${tempdata[1]}/${tempdata[0]} ${temp[1]}`
+    return data
+  }
 
   useEffect(() => {
-    getPropriedadesEvento(id!).then(dados => setPropriedades(dados))
+    getPropriedadesEvento(id!).then(dados => fixerData(dados)).then(dados => setPropriedades(dados))
   }, [])
 
   return (

@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { 
-    arrayUnion, collection, getFirestore, setDoc, doc, getDoc, addDoc, updateDoc
+    arrayUnion, collection, getFirestore, doc, getDoc, addDoc, updateDoc
 } from "firebase/firestore"; 
 
 import { PropriedadesEvento } from "./interfaces.ts"
